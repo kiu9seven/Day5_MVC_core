@@ -1,6 +1,9 @@
+using Day7.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IPersonService, PersonService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

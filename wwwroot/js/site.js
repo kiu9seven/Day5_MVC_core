@@ -2,3 +2,9 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+function PassRowIndexToModal(index){
+    // console.log(index);
+
+    $('#index').val(index);
+    $('#exampleModal').modal('show');
+}

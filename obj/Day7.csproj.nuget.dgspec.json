@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\Day7\\Day5_MVC_core.csproj": {}
+    "E:\\Day7\\Day7.csproj": {}
   },
   "projects": {
-    "e:\\Day7\\Day5_MVC_core.csproj": {
+    "E:\\Day7\\Day7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\Day7\\Day5_MVC_core.csproj",
-        "projectName": "Day5_MVC_core",
-        "projectPath": "e:\\Day7\\Day5_MVC_core.csproj",
+        "projectUniqueName": "E:\\Day7\\Day7.csproj",
+        "projectName": "Day7",
+        "projectPath": "E:\\Day7\\Day7.csproj",
         "packagesPath": "C:\\Users\\quocl\\.nuget\\packages\\",
-        "outputPath": "e:\\Day7\\obj\\",
+        "outputPath": "E:\\Day7\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\quocl\\AppData\\Roaming\\NuGet\\NuGet.Config"

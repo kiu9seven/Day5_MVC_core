@@ -2,12 +2,14 @@
 using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using Day5_MVC_core.Models;
+using Day7.Services;
 
-namespace Day5_MVC_core.Controllers;
+namespace Day7.Controllers;
 
 public class RookiesController : Controller
 {
-    static List<Person> persons = new List<Person>
+
+    List<Person> persons = new List<Person>
     {
              new Person
             {
@@ -110,11 +112,22 @@ public class RookiesController : Controller
                 IsGraduated = false
             }
     };
+    private readonly IPersonService _personService;
+    public RookiesController(IPersonService personService)
+    {
+        _personService = personService;
+    }
+    public IActionResult Index()
+    {
+        var people = _personService.GetAll();
+        return View(people);
+    }
+
     [Route("rookies/male")]
     [Route("rookies/male-members")]
     public IActionResult GetMaleMembers()
     {
-        var results = from person in persons where person.Gender ==  "Male" select person;
+        var results = from person in persons where person.Gender == "Male" select person;
         return new ObjectResult(results);
     }
     [Route("rookies/oldest")]
@@ -134,25 +147,25 @@ public class RookiesController : Controller
     public IActionResult SplitPeopleByBirthYear(int? year)
     {
         var results = from person in persons
-                        group person by person.DateOfBirth.Year.CompareTo(year) into grp
-                        select new
-                        {
-                            Key = grp.Key switch
-                            {
-                                -1 => $"Birth year less than {year}",
-                                0 => $"Birth year equals to {year}",
-                                1 => $"Birth year greater than {year}",
-                                _ => string.Empty,
-                            },
-                            Data = grp.ToList()
-                        };
+                      group person by person.DateOfBirth.Year.CompareTo(year) into grp
+                      select new
+                      {
+                          Key = grp.Key switch
+                          {
+                              -1 => $"Birth year less than {year}",
+                              0 => $"Birth year equals to {year}",
+                              1 => $"Birth year greater than {year}",
+                              _ => string.Empty,
+                          },
+                          Data = grp.ToList()
+                      };
         return Json(results);
     }
- 
+
     [Route("rookies/export")]
     public IActionResult Export()
     {
-        var buffer = WriteCsvToMemory(persons); 
+        var buffer = WriteCsvToMemory(persons);
         var memoryStream = new MemoryStream(buffer);
         return new FileStreamResult(memoryStream, "text/csv") { FileDownloadName = "people.csv" };
     }
@@ -160,11 +173,99 @@ public class RookiesController : Controller
     {
         using (var stream = new MemoryStream())
         using (var writer = new StreamWriter(stream))
-        using (var csv = new CsvWriter(writer , CultureInfo.InvariantCulture))
+        // using (var csvWriter = new CsvWriter(writer , CultureInfo.InvariantCulture))
         {
-            csv.WriteRecords(data);
+            // csvWriter.WriteRecords(data);
             writer.Flush();
             return stream.ToArray();
         }
+    }
+
+    // [HttpPost]
+    public IActionResult Create(Person model)
+    {
+        if (!ModelState.IsValid) return View();
+        _personService.Create(model);
+
+        return RedirectToAction("Index");
+        // return View();
+    }
+    public IActionResult Edit(int index)
+    {
+        try
+        {
+            var person = _personService.GetOne(index);
+            ViewBag.PersonIndex = index;
+            return View(person);
+        }
+        catch (System.Exception)
+        {
+
+            return RedirectToAction("Index");
+        }
+
+    }
+    [HttpPost]
+    public IActionResult Edit(int index, Person model)
+    {
+        if (!ModelState.IsValid)
+        {
+            ViewBag.PersonIndex = index;
+            return View();
+        }
+
+        _personService.Update(index, model);
+        return RedirectToAction("Index");
+    }
+    [HttpPost]
+    public IActionResult Delete(int index)
+    {
+        try
+        {
+            _personService.Delete(index);
+        }
+        catch (System.Exception)
+        {
+
+            throw;
+        }
+        return RedirectToAction("Index");
+    }
+    public IActionResult Detail(int index)
+    {
+        try
+        {
+            var person = _personService.GetOne(index);
+            ViewBag.PersonIndex = index;
+            return View(person);
+        }
+        catch (System.Exception)
+        {
+
+            return RedirectToAction("Index");
+        }
+
+    }
+    [HttpPost]
+    public IActionResult DeleteWithResult(int index)
+    {
+        try
+        {
+            var person = _personService.GetOne(index);
+            HttpContext.Session.SetString("DELETE_USER_NAME",person.FullName);
+            _personService.Delete(index);
+        }
+        catch (System.Exception)
+        {
+
+        }
+        return RedirectToAction("Result");
+    }
+    public IActionResult Result(int index)
+    {
+       
+        var deleteUserName = HttpContext.Session.GetString("DELETE_USER_NAME");
+        ViewBag.DeleteUserName = deleteUserName;
+        return View();
     }
 }

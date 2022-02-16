@@ -1,5 +1,5 @@
 {
-  "FilePath": "e:\\Day5_MVC_core\\Day5_MVC_core.csproj",
+  "FilePath": "e:\\Day7\\Day7.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16295,41 +16295,66 @@
     ],
     "CSharpLanguageVersion": 1000
   },
-  "RootNamespace": "Day5_MVC_core",
+  "RootNamespace": "Day7",
   "Documents": [
     {
-      "FilePath": "e:\\Day5_MVC_core\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "e:\\Day5_MVC_core\\Views\\_ViewImports.cshtml",
+      "FilePath": "e:\\Day7\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Day5_MVC_core\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "e:\\Day5_MVC_core\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "e:\\Day5_MVC_core\\Views\\Home\\Privacy.cshtml",
+      "FilePath": "e:\\Day7\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Day5_MVC_core\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FilePath": "e:\\Day7\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Day5_MVC_core\\Views\\_ViewStart.cshtml",
+      "FilePath": "e:\\Day7\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Day7\\Views\\Rookies\\Detail.cshtml",
+      "TargetPath": "Views\\Rookies\\Detail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Day7\\Views\\Rookies\\Index.cshtml",
+      "TargetPath": "Views\\Rookies\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Day7\\Views\\Rookies\\Result.cshtml",
+      "TargetPath": "Views\\Rookies\\Result.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Day7\\Views\\Rookies\\Edit.cshtml",
+      "TargetPath": "Views\\Rookies\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Day7\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Day7\\Views\\Rookies\\Create.cshtml",
+      "TargetPath": "Views\\Rookies\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Day7\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Day7\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     }
   ],

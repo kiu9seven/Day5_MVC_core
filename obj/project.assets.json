@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Day5_MVC_core\\Day5_MVC_core.csproj",
-      "projectName": "Day5_MVC_core",
-      "projectPath": "E:\\Day5_MVC_core\\Day5_MVC_core.csproj",
+      "projectUniqueName": "E:\\Day7\\Day7.csproj",
+      "projectName": "Day7",
+      "projectPath": "E:\\Day7\\Day7.csproj",
       "packagesPath": "C:\\Users\\quocl\\.nuget\\packages\\",
-      "outputPath": "E:\\Day5_MVC_core\\obj\\",
+      "outputPath": "E:\\Day7\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\quocl\\AppData\\Roaming\\NuGet\\NuGet.Config"

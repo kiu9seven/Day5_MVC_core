@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Day5_MVC_core.Models;
 
-namespace Day5_MVC_core.Controllers;
+namespace Day7.Controllers;
 
 public class HomeController : Controller
 {
